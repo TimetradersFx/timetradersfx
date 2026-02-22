@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TimetradersFx - Advanced Market Structure</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#030303;
+  color:#ffffff;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* Premium GOLD trading background glow */
+body::before{
+  content:"";
+  position:fixed;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,#f5c542 0%, transparent 70%);
+  filter:blur(160px);
+  opacity:0.18;
+  top:-180px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:-1;
+}
+
+/* subtle gold chart texture */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:repeating-linear-gradient(
+    120deg,
+    rgba(245,197,66,0.03),
+    rgba(245,197,66,0.03) 2px,
+    transparent 2px,
+    transparent 80px
+  );
+  pointer-events:none;
+  z-index:-2;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
+.hero{
+  text-align:center;
+  padding:130px 20px 90px;
+}
+
+.brand{
+  font-size:22px;
+  letter-spacing:2px;
+  color:#c6ff00;
+  font-weight:600;
+}
+
+.hero h1{
+  font-size:52px;
+  color:#ffffff;
+  margin:10px 0;
+  position:relative;
+  display:inline-block;
+}
+
+.hero span{
+  color:#c6ff00;
+  text-shadow:0 0 14px #c6ff00;
+}
+
+.hero h1::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-10px;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg, transparent, #c6ff00, transparent);
+  filter:blur(1px);
+  animation:underlineGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes underlineGlow{
+  0%{opacity:0.3; transform:scaleX(0.6);} 
+  50%{opacity:1; transform:scaleX(1);} 
+  100%{opacity:0.3; transform:scaleX(0.6);} 
+}
+
+.hero p{
+  color:#aaa;
+  font-size:18px;
+  max-width:700px;
+  margin:auto;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:18px 36px;
+  background:#c6ff00;
+  color:#000;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:10px;
+  box-shadow:0 0 20px #c6ff00;
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+  transform:skewX(-20deg);
+  animation:shineMove 3.5s linear infinite;
+}
+
+@keyframes shineMove{
+  0%{ left:-120%; }
+  100%{ left:140%; }
+}
+
+.btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 35px #c6ff00;
+}
+
+.section{
+  margin-top:80px;
+}
+
+.section h2{
+  color:#c6ff00;
+  font-size:28px;
+  margin-bottom:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:#0b0b0b;
+  border:1px solid #151515;
+  padding:28px;
+  border-radius:16px;
+  box-shadow:0 0 25px rgba(198,255,0,0.08);
+  transition:0.35s;
+}
+
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 0 40px rgba(198,255,0,0.18);
+}
+
+ul{
+  padding-left:18px;
+}
+
+.highlight{
+  color:#c6ff00;
+  font-weight:bold;
+}
+
+.footer{
+  margin-top:90px;
+  font-size:14px;
+  color:#777;
+  text-align:center;
+  border-top:1px solid #111;
+  padding-top:30px;
+}
+
+@media(max-width:600px){
+.hero h1{font-size:34px;}
+}
+
+/* ===== PROP FIRM STYLE WHATSAPP ICON ===== */
+.whatsapp-float{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:64px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border-radius:50%;
+  text-decoration:none;
+  z-index:9999;
+  animation:floatBounce 3.5s ease-in-out infinite;
+}
+
+.whatsapp-float::before{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:50%;
+  border:1px solid rgba(245,197,66,0.6);
+  box-shadow:0 0 18px rgba(245,197,66,0.5), 0 0 35px rgba(245,197,66,0.25);
+}
+
+.whatsapp-float svg{
+  width:34px;
+  height:34px;
+  fill:#25D366;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.12);
+}
+
+@keyframes floatBounce{
+  0%{ transform:translateY(0px); }
+  50%{ transform:translateY(-6px); }
+  100%{ transform:translateY(0px); }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="hero">
+<div class="brand">TIMETRADERSFX</div>
+<h1><span>Advanced</span> Market Structure</h1>
+<p>TimetradersFx teaches professional forex trading using only market structure and price action — no indicators, no signals, no shortcuts.</p>
+<a class="btn" href="https://pages.razorpay.com/timetradersfx" target="_blank" rel="noopener">ENROLL IN ADVANCED MARKET STRUCTURE</a>
+</div>
+
+<div class="section">
+<h2>Why <span class="highlight">TimetradersFx</span> Is Different</h2>
+<div class="grid">
+<div class="card">
+<h3>Pure Price Action</h3>
+<p>No EMA, RSI, candlestick patterns or chart patterns — only clean market structure logic.</p>
+</div>
+<div class="card">
+<h3>Institutional Style</h3>
+<p>Trade using BOS, CHOCH and real structure-based entries built around price behavior.</p>
+</div>
+<div class="card">
+<h3>Professional Framework</h3>
+<p>Simple repeatable system with structured learning and disciplined execution.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Inside The <span class="highlight">TimetradersFx</span> Course</h2>
+<div class="card">
+<ul>
+<li>Break of Structure (BOS)</li>
+<li>Change of Character (CHOCH)</li>
+<li>Trend Logic & Liquidity Concepts</li>
+<li>Structure-Based Entries</li>
+<li>Professional Risk Management Principles</li>
+<li>Real Trade Breakdowns</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h2>Advanced Market Structure</h2>
+<div class="card">
+<p><strong>Brand:</strong> <span class="highlight">TimetradersFx</span></p>
+<p><strong>Duration:</strong> 3 Months</p>
+<p><strong>Format:</strong> Live Interactive Classes</p>
+<p><strong>Price:</strong> ₹7499</p>
+<a class="btn" href="https://pages.razorpay.com/timetradersfx" target="_blank" rel="noopener">JOIN TIMETRADERSFX NOW</a>
+</div>
+</div>
+
+<div class="section">
+<h2>FAQ</h2>
+<div class="grid">
+<div class="card">
+<strong>Do you give signals?</strong>
+<p>No — TimetradersFx is strictly educational.</p>
+</div>
+<div class="card">
+<strong>Indicators included?</strong>
+<p>No indicators. Pure price action only.</p>
+</div>
+<div class="card">
+<strong>Beginner friendly?</strong>
+<p>Yes, concepts are explained step-by-step.</p>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<p><strong>Disclaimer:</strong> TimetradersFx provides trading education for informational and educational purposes only and does not offer financial, investment, legal, or tax advice. We do not provide signals, portfolio management, or guaranteed results. All examples are for learning purposes only and past performance does not guarantee future outcomes. Trading in financial markets carries a high level of risk and you are solely responsible for your own decisions and results.</p>
+</div>
+
+</div>
+
+<!-- PROP FIRM STYLE WHATSAPP ICON (INLINE SVG SO IT ALWAYS SHOWS) -->
+<a class="whatsapp-float" href="https://wa.me/917975845653" target="_blank" rel="noopener">
+<svg viewBox="0 0 32 32"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2.1 7.8L.3 31.7l8.1-2.1c2.3 1.3 4.9 2 7.6 2 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.7c-2.4 0-4.8-.6-6.8-1.8l-.5-.3-4.8 1.2 1.3-4.7-.3-.5C3.7 20.8 3 18.4 3 16 3 8.9 8.9 3 16 3s13 5.9 13 13-5.9 13.1-13 13.1zm7.1-9.8c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.3-.5.3-.9.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.2 0-.5-.1-.7-.1-.2-.9-2.1-1.2-2.8-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.7.1-1.1.5-.4.4-1.5 1.4-1.5 3.4s1.5 3.9 1.7 4.2c.2.3 3 4.6 7.2 6.4 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.4-1 2.7-2 .3-1 .3-1.8.2-2-.1-.2-.3-.3-.7-.5z"/></svg>
+</a>
+
+</body>
+</html>
