@@ -46,6 +46,16 @@ nav ul li a:hover{color:#00ffcc}
 .hero h1{font-size:64px;font-weight:800;margin-bottom:20px}
 .hero span{background:linear-gradient(90deg,#00f5ff,#00ff99);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{color:#bbb;margin-bottom:40px;font-size:18px;letter-spacing:1px}
+.hero-social{margin-top:35px;display:flex;justify-content:center;gap:25px;flex-wrap:wrap}
+.hero-social a{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:600;text-decoration:none;padding:14px 22px;border-radius:14px;background:rgba(20,20,30,.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);transition:.35s}
+.hero-social a i{font-size:18px}
+.hero-social a:hover{transform:translateY(-6px);box-shadow:0 10px 25px rgba(0,0,0,.4)}
+.hero-social .yt{color:#fff;background:rgba(255,0,0,.08);border:1px solid rgba(255,0,0,.4)}
+.hero-social .yt:hover{box-shadow:0 0 25px rgba(255,0,0,.6)}
+.hero-social .ig{color:#fff;background:rgba(225,48,108,.08);border:1px solid rgba(225,48,108,.4)}
+.hero-social .ig:hover{box-shadow:0 0 25px rgba(225,48,108,.6)}
+.hero-social .tg{color:#fff;background:rgba(0,136,204,.08);border:1px solid rgba(0,136,204,.4)}
+.hero-social .tg:hover{box-shadow:0 0 25px rgba(0,136,204,.6)}
 .btn{padding:12px 30px;border-radius:50px;font-weight:600;text-decoration:none;display:inline-block;margin:10px;transition:.4s}
 .btn-primary{background:linear-gradient(90deg,#00f5ff,#00ff99);color:#000;box-shadow:0 0 25px rgba(0,255,200,.5);animation:pulse 1.8s infinite}
 .btn-primary:hover{transform:translateY(-5px);box-shadow:0 0 35px rgba(0,255,200,.8)}
@@ -99,7 +109,29 @@ footer{padding:60px;background:#08080c;text-align:center;color:#888}
 .program-item{background:rgba(0,255,200,0.05);padding:25px;border-radius:18px;border:1px solid rgba(0,255,200,0.15);font-size:15px}
 .program-item i{margin-right:10px;color:#00ffcc}
 .program-card strong{color:#00ffcc}
-.batch-badge{display:inline-flex;align-items:center;gap:10px;margin-top:25px;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;letter-spacing:.5px;background:rgba(0,255,200,.08);color:#00ffcc;border-left:3px solid #00ffcc;box-shadow:none;animation:none}
+.batch-badge{
+margin-top:35px;
+display:inline-block;
+padding:12px 28px;
+border-radius:40px;
+font-weight:700;
+font-size:14px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+background:linear-gradient(90deg,rgba(0,245,255,0.15),rgba(0,255,153,0.15));
+border:1px solid rgba(0,255,200,0.4);
+color:#00ffcc;
+box-shadow:0 0 20px rgba(0,255,200,0.25);
+backdrop-filter:blur(6px);
+animation:batchSoftGlow 2.5s ease-in-out infinite;
+}
+@keyframes batchSoftGlow{
+0%{box-shadow:0 0 15px rgba(0,255,200,0.2)}
+50%{box-shadow:0 0 30px rgba(0,255,200,0.6)}
+100%{box-shadow:0 0 15px rgba(0,255,200,0.2)}
+}
+.batch-badge::before{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-8px;width:60px;height:3px;background:linear-gradient(90deg,#00f5ff,#00ff99);border-radius:5px}
+.batch-dot{display:none}
 .batch-dot{width:8px;height:8px;background:#00ffcc;border-radius:50%;animation:pulseDot 1.5s infinite}
 @keyframes pulseDot{0%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}100%{opacity:.4;transform:scale(.8)}}
 @keyframes batchGlow{0%{box-shadow:0 0 15px rgba(0,255,200,.4)}50%{box-shadow:0 0 35px rgba(0,255,200,.9)}100%{box-shadow:0 0 15px rgba(0,255,200,.4)}}
@@ -145,6 +177,18 @@ footer{padding:60px;background:#08080c;text-align:center;color:#888}
 <a href="https://pages.razorpay.com/timetradersfx" target="_blank" class="btn btn-primary">Join Now – Secure Your Seat</a>
 <br>
 <div class="badge">⚡ Limited Seats • Batch Filling Fast</div>
+
+<div class="hero-social">
+<a class="yt" href="https://youtu.be/9DgaTd1vHu8?si=9T7ptXpPuAnL-5Oa" target="_blank">
+<i class="fab fa-youtube"></i> YouTube Live
+</a>
+<a class="ig" href="https://www.instagram.com/timetraders_fx?igsh=aHI4MGI2bGdhcTFk" target="_blank">
+<i class="fab fa-instagram"></i> Instagram
+</a>
+<a class="tg" href="https://t.me/timetraders_fx" target="_blank">
+<i class="fab fa-telegram"></i> Telegram
+</a>
+</div>
 
 
 </div>
@@ -231,7 +275,7 @@ footer{padding:60px;background:#08080c;text-align:center;color:#888}
 <p><strong>Program:</strong> Advanced Market Structure</p>
 <p><strong>Duration:</strong> 8 Live Interactive Sessions</p>
 <p><strong>Support:</strong> 1 Month Doubt Solving Support</p>
-<div class="batch-badge"><span class="batch-dot"></span> New Batch Starts Monday</div>
+<div class="batch-badge">New Batch Starts Monday</div>
 
 <div class="program-highlights">
 <div class="program-item"><i class="fas fa-video"></i> Live Interactive Classes</div>
