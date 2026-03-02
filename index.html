@@ -3,247 +3,313 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TimetradersFx - 8 Day Advanced Market Structure</title>
-
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/favicon.png">
-
+<title>TimetradersFx | Patience • Discipline • Consistency</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#030303;
-  color:white;
-  line-height:1.6;
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
+body{background:#0b0b0f;color:#fff;overflow-x:hidden}
+nav{position:fixed;width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 8%;background:rgba(10,10,15,0.9);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid rgba(255,255,255,0.08)}
+nav h2{font-weight:800;letter-spacing:2px}
+.logo-white{color:#ffffff;font-weight:800;letter-spacing:2px}
+.logo-gold{
+background:linear-gradient(135deg,#f5e6a1 0%,#e6c36a 25%,#d4af37 50%,#b8860b 75%,#f5e6a1 100%);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+font-weight:900;
+letter-spacing:2px;
+text-shadow:0 1px 0 #b8860b,0 2px 3px rgba(0,0,0,0.6);
+position:relative;
 }
+.logo-gold::after{
+content:'';
+position:absolute;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,0.6) 50%,transparent 60%);
+transform:translateX(-100%);
+animation:goldShine 3s infinite;
+}
+@keyframes goldShine{
+0%{transform:translateX(-100%)}
+100%{transform:translateX(100%)}
+}
+nav ul{display:flex;list-style:none}
+nav ul li{margin-left:35px}
+nav ul li a{color:#fff;text-decoration:none;font-weight:500;transition:.3s}
+nav ul li a:hover{color:#00ffcc}
+.hero{height:100vh;background:url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3') center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.85),rgba(0,0,0,.95))}
+.hero-content{position:relative;z-index:1;max-width:900px;padding:60px;border-radius:20px;background:rgba(20,20,30,.6);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,.08);box-shadow:0 0 40px rgba(0,255,200,.15)}
+.hero h1{font-size:64px;font-weight:800;margin-bottom:20px}
+.hero span{background:linear-gradient(90deg,#00f5ff,#00ff99);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#bbb;margin-bottom:40px;font-size:18px;letter-spacing:1px}
+.btn{padding:12px 30px;border-radius:50px;font-weight:600;text-decoration:none;display:inline-block;margin:10px;transition:.4s}
+.btn-primary{background:linear-gradient(90deg,#00f5ff,#00ff99);color:#000;box-shadow:0 0 25px rgba(0,255,200,.5);animation:pulse 1.8s infinite}
+.btn-primary:hover{transform:translateY(-5px);box-shadow:0 0 35px rgba(0,255,200,.8)}
+.btn-outline{border:1px solid #00ffcc;color:#00ffcc}
+.btn-outline:hover{background:#00ffcc;color:#000}
+.section{padding:120px 8%;text-align:center}
+.section h2{font-size:48px;margin-bottom:70px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:50px}
+.card{padding:60px 30px;border-radius:25px;background:linear-gradient(145deg,#1a1a25,#0f0f18);box-shadow:10px 10px 30px #080810,-10px -10px 30px #1a1a25;transition:.4s;border:1px solid rgba(255,255,255,.05)}
+.card:hover{transform:translateY(-12px);box-shadow:0 0 35px rgba(0,255,200,.4)}
+.card i{font-size:45px;margin-bottom:25px;background:linear-gradient(90deg,#00f5ff,#00ff99);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.card p{color:#aaa;margin-top:15px}
 
-/* ===== NAVBAR ===== */
-.navbar{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#000;
-  text-align:center;
-  padding:25px 0 15px 0;
-  z-index:1000;
-  box-shadow:0 2px 20px rgba(184,134,11,0.3);
-}
+.cta{padding:10px 0;background:linear-gradient(90deg,#00f5ff,#00ff99);text-align:center;color:#000}
+.cta h2{font-size:18px;margin:0;font-weight:600}
+footer{padding:60px;background:#08080c;text-align:center;color:#888}
+.social-icons{margin-top:25px}
+.social-icons a{display:inline-block;margin:0 15px;font-size:22px;color:#00ffcc;transition:.3s}
+.social-icons a:hover{color:#fff;transform:translateY(-4px)}
+.whatsapp{position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;padding:18px;border-radius:50%;font-size:22px;box-shadow:0 8px 20px rgba(0,0,0,.4);z-index:999}
+@keyframes pulse{0%{box-shadow:0 0 20px rgba(0,255,200,.6)}50%{box-shadow:0 0 40px rgba(0,255,200,1)}100%{box-shadow:0 0 20px rgba(0,255,200,.6)}}
+@keyframes neonFx{from{text-shadow:0 0 5px #00ffcc,0 0 10px #00ffcc,0 0 20px #00ffcc,0 0 40px rgba(0,255,204,0.6)}to{text-shadow:0 0 10px #00ffcc,0 0 20px #00ffcc,0 0 35px #00ffcc,0 0 60px rgba(0,255,204,0.9)}}50%{box-shadow:0 0 40px rgba(0,255,200,1)}100%{box-shadow:0 0 20px rgba(0,255,200,.6)}}
+.badge{display:inline-block;margin-top:20px;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:600;letter-spacing:1px;background:rgba(255,0,76,0.08);color:#ff4d6d;border:1px solid rgba(255,77,109,0.4);box-shadow:0 0 15px rgba(255,77,109,0.25);animation:badgePulse 2s infinite}
+@keyframes badgePulse{0%{box-shadow:0 0 10px rgba(255,77,109,0.2)}50%{box-shadow:0 0 25px rgba(255,77,109,0.5)}100%{box-shadow:0 0 10px rgba(255,77,109,0.2)}}
+.struggle-section{padding:120px 8%;background:#0b0b0f;text-align:center}
+.struggle-section h2{font-size:48px;margin-bottom:70px;background:linear-gradient(90deg,#00f5ff,#00ff99);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.struggle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+.struggle-card{padding:60px 30px;border-radius:25px;background:linear-gradient(145deg,#1a1a25,#0f0f18);box-shadow:10px 10px 30px #080810,-10px -10px 30px #1a1a25;transition:.4s;border:1px solid rgba(255,255,255,.05)}
+.struggle-card:hover{transform:translateY(-12px);box-shadow:0 0 35px rgba(0,255,200,.4)}
+.struggle-card i{font-size:45px;margin-bottom:25px;background:linear-gradient(90deg,#00f5ff,#00ff99);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.struggle-card h3{margin-bottom:20px;color:#fff}
+.struggle-card p{color:#ccc;line-height:1.6}
+.learn-section{padding:120px 8%;background:#0b0b0f;text-align:center}
+.learn-title{font-size:48px;margin-bottom:80px;background:linear-gradient(90deg,#00f5ff,#00ff99);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.learn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:50px;max-width:1400px;margin:0 auto}
+.learn-card{padding:60px 30px;border-radius:25px;background:linear-gradient(145deg,#1a1a25,#0f0f18);box-shadow:10px 10px 30px #080810,-10px -10px 30px #1a1a25;transition:.4s;border:1px solid rgba(255,255,255,.05)}
+.learn-card:hover{transform:translateY(-12px);box-shadow:0 0 35px rgba(0,255,200,.4)}
+.learn-card i{font-size:45px;margin-bottom:25px;background:linear-gradient(90deg,#00f5ff,#00ff99);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.learn-card h3{margin-bottom:15px;color:#fff}
+.learn-card p{color:#ccc;line-height:1.6;font-size:15px}
 
-.brand{
-  font-size:40px;
-  font-weight:900;
-  letter-spacing:4px;
-  background:linear-gradient(120deg,#7a5a17,#b8860b,#f1c75b,#fff2a6,#b8860b,#7a5a17);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:shimmer 3s linear infinite;
-}
+/* TESTIMONIAL SECTION */
 
-.brand::after{
-  content:"";
-  display:block;
-  width:140px;
-  height:3px;
-  margin:8px auto 0;
-  background:linear-gradient(90deg,#7a5a17,#f1c75b,#fff2a6,#b8860b,#7a5a17);
-}
+/* PROGRAM DETAILS */
+.program-section{padding:100px 8%;background:#0b0b0f;text-align:center}
+.program-title{font-size:42px;margin-bottom:40px;background:linear-gradient(90deg,#00f5ff,#00ff99);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.program-card{max-width:900px;margin:0 auto;padding:60px;border-radius:30px;background:linear-gradient(145deg,#1a1a25,#0f0f18);border:1px solid rgba(0,255,200,.15);box-shadow:0 0 40px rgba(0,255,200,.15);font-size:18px;line-height:2;color:#ccc;position:relative;overflow:hidden}
+.program-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,rgba(0,255,200,0.08),transparent 60%);animation:rotateGlow 12s linear infinite}
+@keyframes rotateGlow{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.program-highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin:40px 0}
+.program-item{background:rgba(0,255,200,0.05);padding:25px;border-radius:18px;border:1px solid rgba(0,255,200,0.15);font-size:15px}
+.program-item i{margin-right:10px;color:#00ffcc}
+.program-card strong{color:#00ffcc}
+.batch-badge{display:inline-flex;align-items:center;gap:10px;margin-top:25px;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;letter-spacing:.5px;background:rgba(0,255,200,.08);color:#00ffcc;border-left:3px solid #00ffcc;box-shadow:none;animation:none}
+.batch-dot{width:8px;height:8px;background:#00ffcc;border-radius:50%;animation:pulseDot 1.5s infinite}
+@keyframes pulseDot{0%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}100%{opacity:.4;transform:scale(.8)}}
+@keyframes batchGlow{0%{box-shadow:0 0 15px rgba(0,255,200,.4)}50%{box-shadow:0 0 35px rgba(0,255,200,.9)}100%{box-shadow:0 0 15px rgba(0,255,200,.4)}}
+.program-card:hover{box-shadow:0 0 35px rgba(0,255,200,.4)}
 
-.tagline{
-  margin-top:10px;
-  font-size:14px;
-  letter-spacing:2px;
-  color:#d4af37;
-}
 
-@keyframes shimmer{
-  0% { background-position:-200% center; }
-  100% { background-position:200% center; }
-}
+/* ABOUT SECTION */
+.about-section{padding:110px 8%;background:#0b0b0f;text-align:center}
+.about-title{font-size:44px;margin-bottom:50px;background:linear-gradient(90deg,#00f5ff,#00ff99);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.about-card{max-width:1000px;margin:0 auto;padding:60px;border-radius:30px;background:linear-gradient(145deg,#1a1a25,#0f0f18);border:1px solid rgba(0,255,200,.12);box-shadow:0 0 35px rgba(0,255,200,.08);font-size:17px;line-height:1.9;color:#ccc}
+.about-highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px}
+.about-item{background:rgba(0,255,200,0.05);padding:22px;border-radius:18px;border:1px solid rgba(0,255,200,0.15);font-size:15px}
+.about-item i{margin-right:10px;color:#00ffcc}
+.about-card:hover{box-shadow:0 0 45px rgba(0,255,200,.25)}
 
-/* ===== HERO ===== */
-.hero{
-  text-align:center;
-  padding:220px 20px 120px;
-}
-
-.gold-text{
-  font-size:52px;
-  font-weight:bold;
-  background:linear-gradient(135deg,#7a5a17,#f1c75b,#fff2a6,#b8860b,#7a5a17);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.hero p{
-  max-width:750px;
-  margin:25px auto;
-  font-size:18px;
-  color:#ccc;
-}
-
-/* BUTTON */
-.btn{
-  display:inline-block;
-  padding:18px 45px;
-  font-weight:bold;
-  border-radius:8px;
-  text-decoration:none;
-  color:#000;
-  background:linear-gradient(135deg,#7a5a17,#b8860b,#f1c75b,#fff2a6,#b8860b,#7a5a17);
-  box-shadow:0 8px 25px rgba(184,134,11,0.7);
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.07);
-}
-
-/* ===== SECTIONS ===== */
-.section{
-  padding:80px 20px;
-  text-align:center;
-}
-
-.section h2{
-  font-size:36px;
-  margin-bottom:40px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
-  max-width:1100px;
-  margin:auto;
-}
-
-.card{
-  background:#0a0a0a;
-  border:1px solid rgba(184,134,11,0.3);
-  padding:30px;
-  border-radius:16px;
-  transition:0.3s;
-}
-
-.card:hover{
-  box-shadow:0 0 25px rgba(184,134,11,0.3);
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp-btn{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  width:65px;
-  height:65px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#7a5a17,#b8860b,#f1c75b,#fff2a6,#b8860b,#7a5a17);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 20px rgba(184,134,11,0.7);
-  z-index:9999;
-}
-
-.whatsapp-btn img{
-  width:32px;
-}
-
-/* FOOTER */
-.footer{
-  padding:60px 20px;
-  text-align:center;
-  color:#888;
-  border-top:1px solid rgba(184,134,11,0.2);
-  font-size:13px;
-}
+.testimonial-section{padding:80px 0;background:#0b0b0f;overflow:hidden}
+.testimonial-title{text-align:center;font-size:40px;margin-bottom:50px;background:linear-gradient(90deg,#00f5ff,#00ff99);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.testimonial-wrapper{display:flex;gap:30px;width:max-content;animation:scroll 40s linear infinite}
+.testimonial-card{min-width:320px;max-width:320px;padding:25px;border-radius:20px;background:linear-gradient(145deg,#1a1a25,#0f0f18);border:1px solid rgba(255,255,255,.05);box-shadow:0 0 20px rgba(0,255,200,.08);color:#ccc;font-size:13px;line-height:1.5}
+.testimonial-card:hover{box-shadow:0 0 25px rgba(0,255,200,.4)}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media(max-width:768px){.hero h1{font-size:36px}.section h2{font-size:32px}nav ul{display:none}}
 </style>
 </head>
-
 <body>
+<nav>
+<h2><span class="logo-white">Timetraders</span><span class="logo-gold">Fx</span></h2>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#academy">Course</a></li>
+<li><a href="#about">About Us</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+<section class="hero">
+<div class="hero-content">
+<h1>Master The Markets With <span>Precision</span></h1>
 
-<div class="navbar">
-  <div class="brand">TIMETRADERSFX</div>
-  <div class="tagline">Patience • Discipline • Consistency</div>
+
+<a href="https://pages.razorpay.com/timetradersfx" target="_blank" class="btn btn-primary">Join Now – Secure Your Seat</a>
+<br>
+<div class="badge">⚡ Limited Seats • Batch Filling Fast</div>
+
+
+</div>
+</section>
+<section class="struggle-section">
+<h2>Why Most Traders Struggle</h2>
+<div class="struggle-grid">
+<div class="struggle-card">
+<i class="fas fa-chart-line"></i>
+<h3>Indicator Dependency</h3>
+<p>Relying on lagging indicators instead of understanding real price movement leads to late entries and inconsistent results.</p>
+</div>
+<div class="struggle-card">
+<i class="fas fa-sitemap"></i>
+<h3>No Structured Framework</h3>
+<p>Many traders enter randomly without a defined structure, risk plan, or repeatable system.</p>
+</div>
+<div class="struggle-card">
+<i class="fas fa-brain"></i>
+<h3>Emotional Decision Making</h3>
+<p>Fear, greed, and impatience cause overtrading and poor risk control.</p>
+</div>
+</div>
+</section>
+
+<section id="academy" class="learn-section">
+<h2 class="learn-title">What You Will Learn</h2>
+<div class="learn-grid">
+
+<div class="learn-card">
+<i class="fas fa-wave-square"></i>
+<h3>Pure Price Action</h3>
+<p>No EMA, RSI, candlestick patterns or chart patterns — only clean market structure logic.</p>
 </div>
 
-<div class="hero">
-  <h1 class="gold-text">
-    Master Professional Market Structure<br>
-    In Just 8 Intensive Days
-  </h1>
-  <p>
-    An 8-day live interactive training program designed to build structured price action clarity,
-    execution discipline, and professional trading logic — without indicators or shortcuts.
-  </p>
-
-  <a href="https://pages.razorpay.com/timetradersfx"
-     target="_blank"
-     class="btn">
-     JOIN THE 8-DAY INTENSIVE – ₹7499
-  </a>
+<div class="learn-card">
+<i class="fas fa-chart-bar"></i>
+<h3>Market Structure Clarity</h3>
+<p>Understand how price forms trends and shifts direction with logic.</p>
 </div>
 
-<div class="section">
-  <h2 class="gold-text">Why Most Traders Struggle</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Indicator Dependency</h3>
-      <p>Relying on lagging indicators instead of understanding real price movement leads to late entries and inconsistent results.</p>
-    </div>
-    <div class="card">
-      <h3>No Structured Framework</h3>
-      <p>Many traders enter randomly without a defined structure, risk plan, or repeatable system.</p>
-    </div>
-    <div class="card">
-      <h3>Emotional Decision Making</h3>
-      <p>Fear, greed, and impatience cause overtrading and poor risk control.</p>
-    </div>
-  </div>
+<div class="learn-card">
+<i class="fas fa-water"></i>
+<h3>Liquidity & Price Behavior</h3>
+<p>Identify high-probability zones driven by liquidity.</p>
 </div>
 
-<div class="section">
-  <h2 class="gold-text">What You Will Learn</h2>
-  <div class="grid">
-    <div class="card"><h3>Market Structure Clarity</h3><p>Understand how price forms trends and shifts direction with logic.</p></div>
-    <div class="card"><h3>Liquidity & Price Behavior</h3><p>Identify high-probability zones driven by liquidity.</p></div>
-    <div class="card"><h3>Structured Trade Entries</h3><p>Execute rule-based entries with defined risk.</p></div>
-    <div class="card"><h3>Professional Risk Management</h3><p>Build long-term consistency with proper capital protection.</p></div>
-    <div class="card"><h3>Execution Discipline</h3><p>Develop patience, discipline, and consistency in live markets.</p></div>
-    <div class="card"><h3>Real Trade Breakdowns</h3><p>Analyze structured setups step-by-step for clarity.</p></div>
-  </div>
+<div class="learn-card">
+<i class="fas fa-bullseye"></i>
+<h3>Structured Trade Entries</h3>
+<p>Execute rule-based entries with defined risk.</p>
 </div>
 
-<div class="section">
-  <h2 class="gold-text">Program Details</h2>
-  <div class="grid">
-    <div class="card">
-      <p><strong>Program:</strong> 8-Day Advanced Market Structure Intensive</p>
-      <p><strong>Brand:</strong> TimetradersFx</p>
-      <p><strong>Duration:</strong> 8 Live Interactive Sessions</p>
-      <p><strong>Price:</strong> ₹7499</p>
-      <a href="https://pages.razorpay.com/timetradersfx" target="_blank" class="btn">
-         SECURE YOUR SEAT – PAY ₹7499
-      </a>
-    </div>
-  </div>
+<div class="learn-card">
+<i class="fas fa-shield-alt"></i>
+<h3>Professional Risk Management</h3>
+<p>Build long-term consistency with proper capital protection.</p>
 </div>
 
-<a href="https://wa.me/917975845653?text=Hi%20I%20have%20a%20question%20about%20the%208-Day%20Advanced%20Market%20Structure%20Program"
-class="whatsapp-btn" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-</a>
-
-<div class="footer">
-  <p>
-    <strong>Disclaimer:</strong> TimetradersFx provides educational training related to trading concepts and market structure.
-    We do not provide investment advice, portfolio management, trading signals, or guaranteed returns.
-    All examples are for educational purposes only.
-    Trading in financial markets involves significant risk, including potential loss of capital.
-    Participants are solely responsible for their own trading decisions and financial outcomes.
-  </p>
+<div class="learn-card">
+<i class="fas fa-brain"></i>
+<h3>Execution Discipline</h3>
+<p>Develop patience, discipline, and consistency in live markets.</p>
 </div>
+
+<div class="learn-card">
+<i class="fas fa-search-dollar"></i>
+<h3>Real Trade Breakdowns</h3>
+<p>Analyze structured setups step-by-step for clarity.</p>
+</div>
+
+<div class="learn-card">
+<i class="fas fa-book"></i>
+<h3>Trade Journaling System</h3>
+<p>Learn how to track, review, and refine your trades using a structured journaling process for continuous improvement.</p>
+</div>
+
+</div>
+</section>
+
+<section class="program-section">
+<h2 class="program-title">Program Details</h2>
+<div class="program-card">
+<p><strong>Program:</strong> Advanced Market Structure</p>
+<p><strong>Duration:</strong> 8 Live Interactive Sessions</p>
+<p><strong>Support:</strong> 1 Month Doubt Solving Support</p>
+<div class="batch-badge"><span class="batch-dot"></span> New Batch Starts Monday</div>
+
+<div class="program-highlights">
+<div class="program-item"><i class="fas fa-video"></i> Live Interactive Classes</div>
+<div class="program-item"><i class="fas fa-chart-line"></i> Real Market Case Studies</div>
+<div class="program-item"><i class="fas fa-shield-alt"></i> Structured Risk Framework</div>
+<div class="program-item"><i class="fas fa-users"></i> Private Trader Community Access</div>
+</div>
+
+<a href="https://pages.razorpay.com/timetradersfx" target="_blank" class="btn btn-primary">Join Now – Secure Your Seat</a>
+</div>
+</section>
+
+<section id="about" class="about-section">
+<h2 class="about-title">About TimetradersFx</h2>
+<div class="about-card">
+<p><strong>6+ Years of Market Experience</strong> in Forex and price action trading, focused on structured market logic and disciplined execution.</p>
+
+<p>TimetradersFx was built with a clear mission — to simplify advanced market structure concepts and help traders move away from indicator dependency toward clean, rule-based trading.</p>
+
+<div class="about-highlights">
+<div class="about-item"><i class="fas fa-chart-line"></i> Specialized in Advanced Market Structure</div>
+<div class="about-item"><i class="fas fa-user-graduate"></i> Mentored 250+ Dedicated Learners</div>
+
+<div class="about-item"><i class="fas fa-brain"></i> Emphasis on Discipline & Consistency</div>
+</div>
+
+<p style="margin-top:30px;color:#aaa;">Our approach is educational and system-driven — designed to help traders build long-term consistency through patience, structure, and proper execution.</p>
+</div>
+</section>
+
+
+
+<section class="testimonial-section">
+<h2 class="testimonial-title">Student Reviews</h2>
+<div style="overflow:hidden;">
+<div class="testimonial-wrapper">
+
+<div class="testimonial-card">The trading class was very informative and practical. Concepts were explained clearly with real market examples. Very useful for serious learners.</div>
+
+<div class="testimonial-card">After joining the course I finally understood chart reading, levels and how the market actually works. Thank you sir for the knowledge.</div>
+
+<div class="testimonial-card">Training was very helpful and practical. The strategy levels work amazingly well in live market.</div>
+
+<div class="testimonial-card">Accuracy of levels are 80-90% as said in live stream. Risk management rules changed my trading discipline.</div>
+
+<div class="testimonial-card">Sessions were awesome. I learned proper risk-reward maintenance and consistency in forex market.</div>
+
+<div class="testimonial-card">Mind-blowing class. Advanced concepts explained in simple way. Highly recommend for serious traders.</div>
+
+<div class="testimonial-card">Excellent mentorship and high accuracy strategy. Thank you for guidance and support.</div>
+
+<!-- Duplicate for smooth infinite scroll -->
+<div class="testimonial-card">The trading class was very informative and practical. Concepts were explained clearly with real market examples. Very useful for serious learners.</div>
+<div class="testimonial-card">After joining the course I finally understood chart reading, levels and how the market actually works. Thank you sir for the knowledge.</div>
+<div class="testimonial-card">Training was very helpful and practical. The strategy levels work amazingly well in live market.</div>
+<div class="testimonial-card">Accuracy of levels are 80-90% as said in live stream. Risk management rules changed my trading discipline.</div>
+<div class="testimonial-card">Sessions were awesome. I learned proper risk-reward maintenance and consistency in forex market.</div>
+<div class="testimonial-card">Mind-blowing class. Advanced concepts explained in simple way. Highly recommend for serious traders.</div>
+<div class="testimonial-card">Excellent mentorship and high accuracy strategy. Thank you for guidance and support.</div>
+
+</div>
+</div>
+</section>
+
+<section class="cta">
+<h2>Elevate Your Trading Skillset Today</h2>
+</section>
+<footer id="contact">
+<h3 style="margin-bottom:15px;color:#00ffcc;">Connect With TimetradersFx</h3>
+
+<div class="social-icons">
+<a href="https://youtu.be/9DgaTd1vHu8?si=9T7ptXpPuAnL-5Oa" target="_blank"><i class="fab fa-youtube"></i></a>
+<a href="https://t.me/timetraders_fx" target="_blank"><i class="fab fa-telegram"></i></a>
+<a href="https://www.instagram.com/timetraders_fx?igsh=aHI4MGI2bGdhcTFk" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+<p style="margin-top:25px;font-size:14px;">© 2026 TimetradersFx. All Rights Reserved.</p>
+<p style="margin-top:15px;font-size:12px;color:#666;max-width:900px;margin-left:auto;margin-right:auto;line-height:1.6;">
+Disclaimer: Trading in forex and financial markets involves substantial risk and is not suitable for every investor. Past performance does not guarantee future results. TimetradersFx provides educational content only and does not offer investment advice or manage funds. Please trade responsibly.
+</p>
+</footer>
+<a href="https://wa.me/917975845653" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 
 </body>
 </html>
