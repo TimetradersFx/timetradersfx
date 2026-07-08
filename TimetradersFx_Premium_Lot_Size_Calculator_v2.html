@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TimetradersFx | Premium Lot Size Calculator</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,Arial,sans-serif;
+background:radial-gradient(circle at top,#2d2100,#0a0a0a 40%,#000);
+color:#fff;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:30px;
+}
+.wrap{width:100%;max-width:950px}
+.header{
+background:linear-gradient(135deg,#181818,#0f0f0f);
+border:1px solid rgba(255,215,0,.35);
+border-radius:24px;
+padding:28px;
+display:flex;
+align-items:center;
+gap:22px;
+box-shadow:0 0 35px rgba(255,215,0,.18);
+margin-bottom:25px;
+}
+.logo{
+width:90px;height:90px;border-radius:50%;
+border:3px solid #f5c84b;
+display:grid;place-items:center;
+font-size:34px;font-weight:800;
+background:radial-gradient(circle,#2b2207,#111);
+color:#f5c84b;
+box-shadow:0 0 20px rgba(255,215,0,.35), inset 0 0 15px rgba(255,215,0,.15);
+}
+.brand h1{
+font-size:42px;
+background:linear-gradient(#ffe88b,#c99515);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.brand p{color:#d6b44f;letter-spacing:3px;margin-top:8px;font-size:13px}
+.card{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+background:rgba(20,20,20,.85);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:24px;
+border:1px solid rgba(255,215,0,.25);
+}
+.left h2{color:#ffd86d;margin-bottom:20px}
+label{display:block;margin:18px 0 8px;color:#f5c84b}
+input{
+width:100%;padding:16px;border-radius:12px;border:1px solid #333;
+background:#121212;color:#fff;font-size:18px;
+}
+.result{
+background:#111;border-radius:18px;padding:24px;border:1px solid rgba(255,215,0,.2)
+}
+.item{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #262626}
+.item:last-child{border:none}
+.value{color:#3cff9d;font-weight:bold;font-size:20px}
+.formula{
+margin-top:25px;padding:18px;border-radius:14px;
+background:linear-gradient(90deg,#2b2207,#161616);
+color:#ffe08a;line-height:1.8
+}
+.footer{text-align:center;color:#777;margin-top:20px}
+@media(max-width:760px){
+.card{grid-template-columns:1fr}
+.header{flex-direction:column;text-align:center}
+.brand h1{font-size:30px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="header">
+<div class="logo">TF</div>
+<div class="brand">
+<h1>TIMETRADERSFX</h1>
+<p>PATIENCE &nbsp;|&nbsp; DISCIPLINE &nbsp;|&nbsp; CONSISTENCY</p>
+</div>
+</div>
+
+<div class="card">
+<div class="left">
+<h2>Premium Lot Size Calculator</h2>
+
+<label>Risk Amount ($)</label>
+<input id="risk" type="number" placeholder="Example: 250">
+
+<label>Stop Loss (Pips)</label>
+<input id="sl" type="number" placeholder="Example: 50">
+
+<div class="formula">
+<b>Formula Used</b><br>
+1 Lot = $10 per Pip<br>
+100 Pips = $1000<br><br>
+Lot Size = Risk ÷ (Stop Loss × 10)
+</div>
+</div>
+
+<div class="result">
+<div class="item"><span>Risk Amount</span><span class="value" id="riskVal">$0.00</span></div>
+<div class="item"><span>Stop Loss</span><span class="value" id="slVal">0 Pips</span></div>
+<div class="item"><span>Pip Value</span><span class="value">$10 / Pip</span></div>
+<div class="item"><span>Recommended Lot</span><span class="value" id="lotVal">0.00 Lot</span></div>
+</div>
+</div>
+
+
+<div class="footer">
+<p>© 2026 TimetradersFx</p>
+<p style="margin-top:10px;">
+🌐 <a href="https://timetradersfx.in" target="_blank" style="color:#f5c84b;text-decoration:none;">timetradersfx.in</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+📸 <a href="https://instagram.com/timetraders_fx" target="_blank" style="color:#f5c84b;text-decoration:none;">@timetraders_fx</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+📢 <a href="https://t.me/timetraders_fx" target="_blank" style="color:#f5c84b;text-decoration:none;">Telegram</a>
+</p>
+</div>
+
+</div>
+
+<script>
+const risk=document.getElementById('risk');
+const sl=document.getElementById('sl');
+
+function calc(){
+const r=parseFloat(risk.value);
+const s=parseFloat(sl.value);
+if(!r||!s||r<=0||s<=0){
+document.getElementById('riskVal').textContent='$0.00';
+document.getElementById('slVal').textContent='0 Pips';
+document.getElementById('lotVal').textContent='0.00 Lot';
+return;
+}
+document.getElementById('riskVal').textContent='$'+r.toFixed(2);
+document.getElementById('slVal').textContent=s+' Pips';
+document.getElementById('lotVal').textContent=(r/(s*10)).toFixed(2)+' Lot';
+}
+risk.addEventListener('input',calc);
+sl.addEventListener('input',calc);
+</script>
+</body>
+</html>
