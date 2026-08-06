@@ -7,9 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
+:root{--header-h:110px}
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
 body{background:#0b0b0f;color:#fff;overflow-x:hidden}
-nav{position:fixed;width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 8%;background:rgba(10,10,15,0.9);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid rgba(255,255,255,0.08)}
+.site-header{position:fixed;top:0;left:0;width:100%;z-index:1000}
+nav{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 8%;background:rgba(10,10,15,0.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.ticker-bar{width:100%;background:#08080c;border-bottom:1px solid rgba(0,255,200,.15);padding:6px 0;overflow:hidden}
+.ticker-bar .tradingview-widget-container{width:100%}
+.hero{padding-top:var(--header-h,110px)}
 nav h2{font-weight:800;letter-spacing:2px}
 .logo-white{color:#ffffff;font-weight:800;letter-spacing:2px}
 .logo-gold{
@@ -157,6 +162,7 @@ animation:batchSoftGlow 2.5s ease-in-out infinite;
 </style>
 </head>
 <body>
+<header class="site-header">
 <nav>
 <div style="display:flex;flex-direction:column;">
 <h2><span class="logo-white">Timetraders</span><span class="logo-gold">Fx</span></h2>
@@ -170,6 +176,33 @@ animation:batchSoftGlow 2.5s ease-in-out infinite;
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
+<div class="ticker-bar">
+<div class="tradingview-widget-container">
+<div class="tradingview-widget-container__widget"></div>
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+{
+"symbols": [
+{"proName": "OANDA:XAUUSD","title": "Gold"},
+{"proName": "BINANCE:BTCUSDT","title": "Bitcoin"},
+{"proName": "BINANCE:ETHUSDT","title": "Ethereum"},
+{"proName": "FX:EURUSD","title": "EUR/USD"},
+{"proName": "FX:GBPUSD","title": "GBP/USD"},
+{"proName": "FX:USDJPY","title": "USD/JPY"},
+{"proName": "OANDA:XAGUSD","title": "Silver"},
+{"proName": "FX:USDCAD","title": "USD/CAD"},
+{"proName": "FX:AUDUSD","title": "AUD/USD"},
+{"proName": "OANDA:USOIL","title": "Crude Oil"}
+],
+"showSymbolLogo": true,
+"isTransparent": true,
+"displayMode": "adaptive",
+"colorTheme": "dark",
+"locale": "en"
+}
+</script>
+</div>
+</div>
+</header>
 <section class="hero">
 <div class="hero-content">
 <h1>Master The Markets With <span>Precision</span></h1>
@@ -396,6 +429,18 @@ Disclaimer: Trading in forex and financial markets involves substantial risk and
 </p>
 </footer>
 <a href="https://wa.me/917975845653" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+function setHeaderHeight(){
+  var h = document.querySelector('.site-header');
+  if(h){ document.documentElement.style.setProperty('--header-h', h.offsetHeight + 'px'); }
+}
+window.addEventListener('load', function(){
+  setHeaderHeight();
+  setTimeout(setHeaderHeight, 1200);
+});
+window.addEventListener('resize', setHeaderHeight);
+</script>
 
 </body>
 </html>
